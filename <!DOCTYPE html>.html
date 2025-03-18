@@ -1,0 +1,92 @@
+<teste2 html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição para Vaga do Cepro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .fundo {
+            background-image: linear-gradient(45deg, black, orange);
+            height: 100vh;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .formulario {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="text"], input[type="email"], input[type="phone"] {
+            background-color: rgb(31, 31, 31);
+            color: white;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="phone"]:focus {
+            outline: none;
+            border: 1px solid white;
+        }
+        button {
+            background-color: rgb(31, 31, 31);
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: black;
+        }
+        #resultado {
+            font-size: 18px;
+            margin-bottom: 10px;
+            min-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fundo">
+        <h1>Inscrição para Vaga do Cepro</h1>
+        <div class="formulario">
+            <h2>Formulário de Inscrição</h2>
+            <div id="resultado"></div>
+            <form id="formInscricao">
+                <input type="text" id="nome" placeholder="Seu Nome" required><br>
+                <input type="email" id="email" placeholder="Seu Email" required><br>
+                <input type="text" id="telefone" placeholder="Seu Telefone" required><br>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('formInscricao').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário e recarregamento da página
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const resultado = document.getElementById('resultado');
+
+            if (nome && email && telefone) {
+                resultado.innerHTML = `Inscrição realizada com sucesso!<br><strong>Nome:</strong> ${nome}<br><strong>Email:</strong> ${email}<br><strong>Telefone:</strong> ${telefone}`;
+            } else {
+                resultado.innerHTML = 'Por favor, preencha todos os campos.';
+            }
+        });
+    </script>
+</body>
+</html>
